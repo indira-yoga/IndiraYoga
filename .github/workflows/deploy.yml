@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Project 🔧
         run: |
-          npm run build
+          npm run build -- --base-href /IndiraYoga/
           cp dist/indira/browser/index.html dist/indira/browser/404.html
 
       - name: Setup Pages
