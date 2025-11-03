@@ -43,7 +43,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist/potters-development/browser
+          path: ./dist/indira/browser
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment
