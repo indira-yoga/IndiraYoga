@@ -6,7 +6,7 @@
   justify-content: center;
   text-align: center;
   padding: 10rem 2rem 6rem;
-  background: #FCFBD4;
+  background: #FFFBE3;
   position: relative;
   overflow: hidden;
 }
@@ -87,7 +87,7 @@
 }
 
 @keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
+  0%, 100% { background-position: 0 50%; }
   50% { background-position: 100% 50%; }
 }
 
