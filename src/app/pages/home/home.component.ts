@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   scrollEnabled = false;
 
   ngOnInit() {
-    const hasVisitedContent = sessionStorage.getItem('hasVisitedContent');
+    const hasVisitedContent = localStorage.getItem('hasVisitedContent');
     const isAtTop = window.scrollY === 0;
 
     if (!hasVisitedContent && isAtTop) {
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.scrollEnabled = true;
     document.body.style.overflow = '';
 
-    sessionStorage.setItem('hasVisitedContent', 'true');
+    localStorage.setItem('hasVisitedContent', 'true');
 
     setTimeout(() => {
       const aboutSection = document.getElementById('about');
