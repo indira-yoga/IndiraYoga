@@ -28,13 +28,12 @@
       <p class="about-description">INDIRA. denkt graag met je mee om een yoga-ervaring te creëren die perfect aansluit op jouw behoeften.</p>
     </div>
   </div>
-  <div class="section-wave"></div>
 </section>
 
 <!-- Classes Section -->
 <section id="classes" class="classes-section">
   <div class="container">
-    <h2 class="section-title">Yoga stijlen</h2>
+    <h2 class="section-title">YOGA STIJLEN</h2>
     <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
 
     <div class="classes-grid">
@@ -69,35 +68,45 @@
       </div>
     </div>
   </div>
-  <div class="section-wave section-wave-flip"></div>
 </section>
 
-<!-- Schedule Section -->
-<section id="schedule" class="schedule-section">
+<section id="connecties" class="connecties-section">
   <div class="container">
-    <h2 class="section-title">Schema</h2>
-    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+    <h2 class="section-title">INSPIRERENDE CONNECTIES</h2>
 
-    <div class="schedule-grid">
-      <div class="schedule-card">
-        <h4>Maandag</h4>
-        <p>17:00 - 18:00</p>
-      </div>
-      <div class="schedule-card">
-        <h4>Woensdag</h4>
-        <p>18:00 - 19:00</p>
-      </div>
-      <div class="schedule-card">
-        <h4>Vrijdag</h4>
-        <p>16:30 - 17:30</p>
-      </div>
-      <div class="schedule-card">
-        <h4>Zaterdag</h4>
-        <p>10:00 - 11:00</p>
-      </div>
+    <div class="connecties-grid">
+      @for (slideshow of slideshows; track $index; let slideIndex = $index) {
+        <div class="connectie-card">
+          <div class="connectie-slideshow">
+            <div class="slideshow-wrapper">
+              @for (image of slideshow.images; track image; let imgIndex = $index) {
+                <img
+                  [src]="image"
+                  [alt]="connectiesTitles[slideIndex]"
+                  class="connectie-image"
+                  [class.active]="slideshow.currentIndex === imgIndex">
+              }
+            </div>
+            @if (slideshow.images.length > 1) {
+              <div class="slideshow-dots">
+                @for (image of slideshow.images; track image; let dotIndex = $index) {
+                  <span
+                    class="dot"
+                    [class.active]="slideshow.currentIndex === dotIndex"
+                    (click)="setSlide(slideIndex, dotIndex)"></span>
+                }
+              </div>
+            }
+          </div>
+          <div class="connectie-text">
+            <h3><strong>{{ connectiesTitles[slideIndex] }}</strong></h3>
+            <p>{{ connectiesDescriptions[slideIndex] }}</p>
+            <i class="bi bi-arrow-90deg-right connectie-arrow"></i>
+          </div>
+        </div>
+      }
     </div>
   </div>
-  <div class="section-wave"></div>
 </section>
 
 <!-- Contact Section -->
