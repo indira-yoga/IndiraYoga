@@ -1,14 +1,12 @@
-/* TAN Meringue Font */
 @font-face {
-  font-family: 'TAN Meringue';
-  src: url('assets/fonts/TanMeringue.otf') format('opentype'),
-       url('assets/fonts/TanMeringue.ttf') format('truetype');
+  font-family: 'TAN Rosebud';
+  src: url('assets/fonts/TANRosebud.otf') format('opentype'),
+       url('assets/fonts/TANRosebud.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +30,6 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'TAN Meringue', serif !important;
+  font-family: 'TAN Rosebud', serif !important;
   font-weight: 400;
 }
