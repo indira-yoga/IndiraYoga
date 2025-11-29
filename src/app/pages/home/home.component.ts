@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +6,36 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+  scrollEnabled = false;
 
+  ngOnInit() {
+    const hasVisitedContent = sessionStorage.getItem('hasVisitedContent');
+    const isAtTop = window.scrollY === 0;
+
+    if (!hasVisitedContent && isAtTop) {
+      document.body.style.overflow = 'hidden';
+      this.scrollEnabled = false;
+    } else {
+      this.scrollEnabled = true;
+    }
+  }
+
+  ngOnDestroy() {
+    document.body.style.overflow = '';
+  }
+
+  scrollToContent() {
+    this.scrollEnabled = true;
+    document.body.style.overflow = '';
+
+    sessionStorage.setItem('hasVisitedContent', 'true');
+
+    setTimeout(() => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  }
 }

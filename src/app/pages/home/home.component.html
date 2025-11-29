@@ -1,13 +1,13 @@
 <!-- Hero Section -->
 <section id="home" class="hero">
-  <div class="hero-wave hero-wave-top"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title">INDIRA.</h1>
-    <p class="hero-subtitle">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor</p>
-    <button class="cta-button"><span>Ontdek Meer</span></button>
+    <button class="cta-button" (click)="scrollToContent()"><span>Ontdek Meer</span></button>
   </div>
-  <div class="hero-wave hero-wave-bottom"></div>
 </section>
+
+<div class="main-content">
 
 <!-- About Section -->
 <section id="about" class="about-section">
@@ -128,3 +128,6 @@
     </div>
   </div>
 </section>
+
+</div>
+<!-- End Main Content Wrapper -->
