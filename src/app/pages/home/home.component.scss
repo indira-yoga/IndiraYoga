@@ -541,6 +541,74 @@
   }
 }
 
+/* Reacties Section */
+.reacties-section {
+  background: #5271FF;
+  position: relative;
+  padding: 7rem 2rem;
+  transition: background 0.3s ease;
+
+  .section-title {
+    color: #FCFBD4;
+  }
+}
+
+.reacties-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4rem;
+  margin-top: 6rem;
+  justify-content: center;
+  padding: 0 2rem;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 4rem;
+    gap: 3rem;
+    flex-direction: column;
+  }
+}
+
+.reactie-card {
+  flex: 0 0 450px;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  @media (min-width: 769px) and (max-width: 1024px) {
+    flex: 0 0 400px;
+    max-width: 400px;
+  }
+
+  .reactie-text {
+    font-family: 'Questrial', sans-serif;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    line-height: 1.7;
+    color: #FCFBD4;
+    margin: 0;
+  }
+
+  .reactie-author {
+    font-family: 'Questrial', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    color: #BEDBAD;
+    margin: 0;
+    font-weight: 600;
+    font-style: italic;
+  }
+}
+
 /* Contact Section */
 .contact-section {
   background: #FFFBE3;
