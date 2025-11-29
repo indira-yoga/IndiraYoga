@@ -10,9 +10,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   contactScrollEnabled = false;
 
   slideshows = [
-    { images: ['/assets/connecties-1.png'], currentIndex: 0 },
-    { images: ['/assets/connecties-2.png'], currentIndex: 0 },
-    { images: ['/assets/connecties-3.png'], currentIndex: 0 }
+    { images: ['/assets/connecties-1/connecties-1.png', '/assets/connecties-1/connecties-1a.jpg', '/assets/connecties-1/connecties-1b.jpg', '/assets/connecties-1/connecties-1c.jpg', '/assets/connecties-1/connecties-1d.jpg'], currentIndex: 0 },
+    { images: ['/assets/connecties-2/connecties-2.png', '/assets/connecties-2/connecties-2a.jpg', '/assets/connecties-2/connecties-2b.jpg', '/assets/connecties-2/connecties-2c.jpg', '/assets/connecties-2/connecties-2d.jpg', '/assets/connecties-2/connecties-2e.jpg', '/assets/connecties-2/connecties-2f.jpg'], currentIndex: 0 },
+    { images: ['/assets/connecties-3/connecties-3.png', '/assets/connecties-3/connecties-3a.jpg', '/assets/connecties-3/connecties-3b.jpg', '/assets/connecties-3/connecties-3c.jpg', '/assets/connecties-3/connecties-3d.jpg'], currentIndex: 0 }
   ];
 
   connectiesTitles = [
@@ -39,11 +39,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.scrollEnabled = true;
     }
 
-    if (hasVisitedContactDetails) {
-      this.contactScrollEnabled = true;
-    } else {
-      this.contactScrollEnabled = false;
-    }
+    this.contactScrollEnabled = !!hasVisitedContactDetails;
   }
 
   ngOnDestroy() {
@@ -66,16 +62,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   setSlide(slideshowIndex: number, imageIndex: number) {
     this.slideshows[slideshowIndex].currentIndex = imageIndex;
-  }
-
-  nextSlide(slideshowIndex: number) {
-    const slideshow = this.slideshows[slideshowIndex];
-    slideshow.currentIndex = (slideshow.currentIndex + 1) % slideshow.images.length;
-  }
-
-  prevSlide(slideshowIndex: number) {
-    const slideshow = this.slideshows[slideshowIndex];
-    slideshow.currentIndex = (slideshow.currentIndex - 1 + slideshow.images.length) % slideshow.images.length;
   }
 
   scrollToContactDetails() {
