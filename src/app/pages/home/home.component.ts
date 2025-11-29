@@ -2,12 +2,12 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  imports: [],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, OnDestroy {
   scrollEnabled = false;
+  contactScrollEnabled = false;
 
   slideshows = [
     { images: ['/assets/connecties-1.png'], currentIndex: 0 },
@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     const hasVisitedContent = localStorage.getItem('hasVisitedContent');
+    const hasVisitedContactDetails = localStorage.getItem('hasVisitedContactDetails');
     const isAtTop = window.scrollY === 0;
 
     if (!hasVisitedContent && isAtTop) {
@@ -36,6 +37,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.scrollEnabled = false;
     } else {
       this.scrollEnabled = true;
+    }
+
+    if (hasVisitedContactDetails) {
+      this.contactScrollEnabled = true;
+    } else {
+      this.contactScrollEnabled = false;
     }
   }
 
@@ -69,5 +76,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   prevSlide(slideshowIndex: number) {
     const slideshow = this.slideshows[slideshowIndex];
     slideshow.currentIndex = (slideshow.currentIndex - 1 + slideshow.images.length) % slideshow.images.length;
+  }
+
+  scrollToContactDetails() {
+    this.contactScrollEnabled = true;
+
+    localStorage.setItem('hasVisitedContactDetails', 'true');
+
+    setTimeout(() => {
+      const contactDetailsSection = document.getElementById('contact-details');
+      if (contactDetailsSection) {
+        contactDetailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   }
 }

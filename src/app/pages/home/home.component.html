@@ -133,31 +133,52 @@
   </div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <h2 class="section-title">Contact</h2>
-    <p class="section-description">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam</p>
+<!-- Contact Hero Section -->
+<section id="contact" class="contact-hero-section">
+  <div class="contact-hero-overlay"></div>
+  <div class="contact-hero-content">
+    <h1 class="contact-hero-title">CONTACTEER INDIRA.</h1>
+    <p class="contact-hero-subtitle">En laten we samen een mooi moment creëren.</p>
+    <button class="contact-cta-button" (click)="scrollToContactDetails()"><span>Zie contact gegevens</span></button>
+  </div>
+</section>
 
-    <div class="contact-wrapper">
-      <div class="contact-blob"></div>
-      <div class="contact-content">
-        <div class="contact-item">
-          <div class="contact-icon">&#64;</div>
-          <p>hello&#64;indira.com</p>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <p>+31 6 1234 5678</p>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <p>Amsterdam, Nederland</p>
+<!-- Contact Details Section -->
+@if (contactScrollEnabled) {
+  <section id="contact-details" class="contact-details-section">
+    <div class="container">
+      <h2 class="section-title">Contact Gegevens</h2>
+
+      <div class="contact-wrapper">
+        <div class="contact-content">
+          <div class="contact-item">
+            <div class="contact-icon">&#64;</div>
+            <div class="contact-info">
+              <p class="contact-label">Email</p>
+              <p class="contact-value">hello&#64;indira.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="contact-info">
+              <p class="contact-label">Telefoon</p>
+              <p class="contact-value">+31 6 1234 5678</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="bi bi-instagram"></i>
+            </div>
+            <div class="contact-info">
+              <p class="contact-label">Instagram</p>
+              <p class="contact-value">&#64;indira.yoga</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+}
 
 </div>
 <!-- End Main Content Wrapper -->
