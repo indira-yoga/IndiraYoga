@@ -1,16 +1,22 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
   background-image: url('/assets/hero.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  @media (max-width: 992px) {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .hero-overlay {
@@ -24,15 +30,31 @@
 }
 
 .hero-content {
-  max-width: 900px;
   width: 100%;
+  height: 100%;
   z-index: 2;
   animation: fade-in-up 1s ease-out;
-  padding: 2rem;
+  padding: 7rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3rem;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (max-width: 992px) {
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 3rem;
+  }
+
+  .cta-button {
+    align-self: center;
+    margin-bottom: 10rem;
+
+    @media (max-width: 992px) {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .hero-title {
@@ -459,7 +481,9 @@
 }
 
 .reactie-card {
-  flex: 0 0 450px; max-width: 450px;
+  flex: 0 0 650px; max-width: 660px;
+  // for three review fields:
+  //flex: 0 0 450px; max-width: 450px;
   display: flex; flex-direction: column; gap: 1.5rem;
   text-align: center;
 
